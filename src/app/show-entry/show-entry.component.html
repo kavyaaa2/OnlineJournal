@@ -1,0 +1,33 @@
+<body style=" background-image: url(assets/img/journaling-1.jpeg);">
+<div class="container" style="margin-top: 70px; padding-bottom :10px;">
+    <div style="padding-top: 10px;" *ngFor="let data of entryList">
+        <h4>Entry on {{data.date}}:</h4>
+    </div>
+    <form [formGroup]="entryForm" (ngSubmit)="submitentry()">
+        <div class="row">
+            <div class="col-lg-12">
+                <label style="font-size: 25px;" for="">Title</label>
+                <input [ngClass]="{
+                    'has-error':entryForm.controls.title.touched && entryForm.controls.title.invalid,
+                    'has-success' : entryForm.controls.title.touched && entryForm.controls.title.valid
+                }" type="text" formControlName="title" class="form-control" style="font-size: 25px;">
+                <span style="color:red;"
+                *ngIf="entryForm.controls.title.touched && entryForm.controls.title.invalid">Please Enter Title</span>
+            </div>
+            <div class="col-lg-12">
+                <label style="font-size: 25px;" for="">Entry</label>
+                <textarea formControlName="journal_content" class="form-control" style="height: 20rem;"></textarea>
+            </div>
+        </div>
+        
+        <div class="row mt-3" style="display: flex; padding-bottom: 10px;">
+            <div style="flex-wrap:wrap;">
+                <button (click)="list()" class="btn btn-primary" style="margin-right: 10px;">Go Back</button>
+                <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Save Changes</button>
+                
+                <button (click)="deleteEntry()" class="btn btn-secondary">Delete</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>

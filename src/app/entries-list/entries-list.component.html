@@ -1,0 +1,39 @@
+<body style="background-image: url(assets/img/slide/diary.jpeg);">
+  <section id="pricing" class="pricing">
+    <div class="container" class="carousel-item active" style="padding: 10px; margin: top 10px;">
+
+      <div class="row" *ngIf="entryList.length!=0">
+        <div class="col-lg-4 col-md-6 mt-4 mt-md-0" *ngFor="let data of entryList" style="padding-top: 5px;">
+          <div class="box featured">
+            <h3>{{data.date}}</h3>
+            <h4>{{data.title}}</h4>
+            <ul>
+            </ul>
+            <div class="btn-wrap">
+              <button (click)="callFunction(data.entry_no)" style="background-color: rgb(228, 101, 101);">Open
+                Entry</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <div class="container" style="height: 400px;color: rgb(110, 34, 34);"
+    *ngIf="entryList.length==0 && entryService.userID!=-1">
+    <div style=" background-color: gray; width:fit-content;">
+      <b style=" font-size: 60px;">MAKE AN ENTRY</b>
+           
+    </div>
+    <div >
+    <button routerLink="/new-entry" style="margin-left: 180px; margin-top: 10px;" class="btn btn-primary">Create</button>
+  </div>
+  </div>
+  <div class="container" style="height: 400px;color: rgb(110, 34, 34);" *ngIf="entryService.userID==-1">
+    <div style="background-color: gray; width:fit-content">
+      <b style=" font-size: 60px;">
+        LOGIN TO SEE YOUR ENTRIES</b>
+    </div>
+  </div>
+</body>

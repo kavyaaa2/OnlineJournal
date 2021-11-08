@@ -1,0 +1,22 @@
+<header id="header" class="fixed-top d-flex align-items-center" >
+  <a routerLink="/landing-page" class="logo me-auto" style="margin-left: 100px;"><img src="assets/img/writing.png" alt="" class="img-fluid"></a>
+    <div class="container d-flex align-items-center" style="height: 15px;">
+  
+      <h1 class="logo me-auto"><a routerLink="/landing-page">Journaling</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+  
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a routerLink="/landing-page" class="active">Home</a></li>
+          <li><a routerLink="/entry-list">My Entries</a></li>
+          <li><a routerLink="/about">About</a></li>
+          <li><a routerLink="/new-entry">New Entry</a></li>
+
+          <li *ngIf="userService.userID==-1"><a href="index.html" class="getstarted">Register / Sign In</a></li>
+          <li *ngIf="userService.userID!=-1"><a role="button" (click)="logout()" class="getstarted">Log out</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+  
+    </div>
+  </header>

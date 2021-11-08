@@ -1,0 +1,28 @@
+<section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url(assets/img/slide/diary.jpeg)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown" >Welcome 
+                <div [(ngModel)]="userDetail.first_name" ngDefaultControl>
+                  {{userDetail.first_name}}
+                </div>
+                to <span>Online Journaling </span></h2>
+              <p class="animate__animated animate__fadeInUp">You may have stopped using a diary once you reached adulthood. But the concept and its benefits still apply. Now it’s called journaling. It's simply writing down your thoughts and feelings to understand them more clearly. And if you struggle with stress, depression, or anxiety, keeping a journal can be a great idea. It can help you gain control of your emotions and improve your mental health.</p>
+              <div style="display: flex; justify-content: space-around;">
+              <a routerLink="/about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+              <a routerLink="/new-entry" class="btn-get-started animate__animated animate__fadeInUp scrollto">Make a New Entry</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
